@@ -16,12 +16,13 @@ async function bootstrap() {
     secret: process.env.SECRET_KEY,
     cookie: {
       maxAge: 24 * 60 * 60 * 1000,
-      secure: true,
+      secure: false,
       sameSite: 'none',
     },
+    name: 'mnl',
     store,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
   };
   app.use(session(sessionSettings));
   app.use(passport.initialize());
